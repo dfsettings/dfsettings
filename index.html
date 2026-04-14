@@ -65,14 +65,12 @@
       </div>
       
       <div class="flex items-center gap-3">
-        <!-- Discord Login -->
         <button onclick="startDiscordLogin()" 
                 class="flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white px-6 py-3 rounded-2xl transition-all font-medium">
           <i class="fa-brands fa-discord"></i>
           <span>Login with Discord</span>
         </button>
 
-        <!-- Theme Toggle -->
         <button id="themeToggle" 
                 class="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-5 py-3 rounded-2xl transition-all">
           <i id="themeIcon" class="fa-solid fa-sun text-xl"></i>
@@ -112,9 +110,9 @@
   </div>
 
   <script>
-    // ==================== YOUR SETTINGS ====================
+    // ==================== SETTINGS ====================
     const WORKER_URL = "https://rapid-cell-f430.malmrosc.workers.dev";
-    // =====================================================
+    // =================================================
 
     const players = [
       { name: "Grimtide Darkfell", clan: "Rangers", flag: "us", avatar: "images/grimtide.png", mouse: "...", mousepad: "...", dpi: 800, sensitivity: 1.35, resolution: "1920x1080", fov: 90, notes: "" },
@@ -143,7 +141,6 @@
       window.location.href = `${WORKER_URL}/login`;
     }
 
-    // Check if user just logged in via Discord
     window.onload = () => {
       const params = new URLSearchParams(window.location.search);
       const discordName = params.get('discord');
@@ -151,7 +148,7 @@
         alert(`✅ Successfully logged in as ${discordName}!`);
         window.history.replaceState({}, document.title, window.location.pathname);
       }
-      renderPlayers(players);
+      renderPlayers(players);   // ← This line makes the cards appear
     };
 
     function renderPlayers(filteredPlayers) {
@@ -174,7 +171,6 @@
                   : `<div class="text-6xl font-bold text-zinc-400 dark:text-zinc-500">${initials}</div>`}
               </div>
             </div>
-
             <div class="px-6 text-center flex-1 flex flex-col">
               <div class="flex items-center justify-center gap-3 mt-auto">
                 <div class="name text-[20px] font-bold tracking-tight text-${accent}-600 dark:text-${accent}-400">${player.name}</div>
@@ -182,7 +178,6 @@
               </div>
               <div class="mt-2 text-lg text-zinc-500 dark:text-zinc-400">${player.clan}</div>
             </div>
-
             <div class="mt-auto bg-zinc-100 dark:bg-zinc-950 px-6 py-5 text-center text-xs font-medium text-zinc-400 dark:text-zinc-500 border-t border-zinc-200 dark:border-zinc-700">
               Click for full settings →
             </div>
@@ -208,9 +203,7 @@
       const headerHTML = `
         <div class="flex items-center gap-4">
           <div class="w-16 h-16 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-700 flex-shrink-0 flex items-center justify-center text-5xl bg-zinc-100 dark:bg-zinc-800">
-            ${player.avatar 
-              ? `<img src="${player.avatar}" alt="${player.name}" class="w-full h-full object-cover">` 
-              : `<span>${initials}</span>`}
+            ${player.avatar ? `<img src="${player.avatar}" alt="${player.name}" class="w-full h-full object-cover">` : `<span>${initials}</span>`}
           </div>
           <div>
             <div class="flex items-center gap-3">
