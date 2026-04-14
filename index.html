@@ -231,7 +231,7 @@
           </div>
           <div class="mt-5 text-center">
             <div class="text-xs text-zinc-500 dark:text-zinc-400">Resulting eDPI</div>
-            <div id="convResult" class="text-5xl font-bold text-${accent}-600 dark:text-${accent}-400 mt-1">0</div>
+            <div id="convResult" class="text-5xl font-bold text-${accent}-600 dark:text-${accent}-400 mt-1"></div>
           </div>
         </div>
 
@@ -241,7 +241,6 @@
       document.getElementById('modalContent').innerHTML = contentHTML;
       document.getElementById('modal').classList.remove('hidden');
 
-      // Live eDPI converter
       const dpiInput = document.getElementById('convDpi');
       const sensInput = document.getElementById('convSens');
       const resultEl = document.getElementById('convResult');
@@ -254,7 +253,7 @@
 
       dpiInput.addEventListener('input', updateConverter);
       sensInput.addEventListener('input', updateConverter);
-      updateConverter(); // initial calculation
+      updateConverter();
     }
 
     function closeModal() {
@@ -263,6 +262,7 @@
 
     function applyTheme(isDark) {
       currentTheme = isDark ? 'dark' : 'light';
+      
       if (isDark) {
         document.documentElement.classList.add('dark');
         document.getElementById('themeIcon').classList.replace('fa-sun', 'fa-moon');
@@ -299,7 +299,7 @@
       applyTheme(currentTheme === 'light');
     });
 
-    // Initial render - Light Mode
+    // Force Light Mode on start
     window.onload = () => {
       applyTheme(false);
       renderPlayers(players);
