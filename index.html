@@ -57,7 +57,6 @@
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 min-h-screen">
 
   <div class="max-w-6xl mx-auto px-6 py-10">
-    <!-- Header -->
     <div class="flex justify-between items-center mb-10">
       <div>
         <h1 class="text-4xl font-bold tracking-tight">dfsettings</h1>
@@ -79,7 +78,6 @@
       </div>
     </div>
 
-    <!-- Controls -->
     <div class="flex flex-col sm:flex-row gap-4 mb-8">
       <div class="relative flex-1 max-w-md">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400"></i>
@@ -94,7 +92,6 @@
       </select>
     </div>
 
-    <!-- Players Grid -->
     <div id="playersGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
   </div>
 
@@ -110,9 +107,7 @@
   </div>
 
   <script>
-    // ==================== SETTINGS ====================
     const WORKER_URL = "https://rapid-cell-f430.malmrosc.workers.dev";
-    // =================================================
 
     const players = [
       { name: "Grimtide Darkfell", clan: "Rangers", flag: "us", avatar: "images/grimtide.png", mouse: "...", mousepad: "...", dpi: 800, sensitivity: 1.35, resolution: "1920x1080", fov: 90, notes: "" },
@@ -140,16 +135,6 @@
     function startDiscordLogin() {
       window.location.href = `${WORKER_URL}/login`;
     }
-
-    window.onload = () => {
-      const params = new URLSearchParams(window.location.search);
-      const discordName = params.get('discord');
-      if (discordName) {
-        alert(`✅ Successfully logged in as ${discordName}!`);
-        window.history.replaceState({}, document.title, window.location.pathname);
-      }
-      renderPlayers(players);   // ← This line makes the cards appear
-    };
 
     function renderPlayers(filteredPlayers) {
       const grid = document.getElementById('playersGrid');
@@ -255,20 +240,6 @@
 
       document.getElementById('modalContent').innerHTML = contentHTML;
       document.getElementById('modal').classList.remove('hidden');
-
-      const dpiInput = document.getElementById('convDpi');
-      const sensInput = document.getElementById('convSens');
-      const resultEl = document.getElementById('convResult');
-
-      function updateConverter() {
-        const d = parseFloat(dpiInput.value) || 0;
-        const s = parseFloat(sensInput.value) || 0;
-        resultEl.textContent = calculateEDPI(d, s);
-      }
-
-      dpiInput.addEventListener('input', updateConverter);
-      sensInput.addEventListener('input', updateConverter);
-      updateConverter();
     }
 
     function closeModal() {
@@ -315,7 +286,9 @@
     });
 
     // Initial render
-    applyTheme(false);
+    window.onload = () => {
+      renderPlayers(players);
+    };
   </script>
 </body>
 </html>
