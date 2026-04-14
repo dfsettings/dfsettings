@@ -111,8 +111,9 @@
 
     const players = [
       { name: "Grimtide Darkfell", clan: "Rangers", flag: "us", avatar: "images/grimtide.png", mouse: "...", mousepad: "...", dpi: 800, sensitivity: 1.35, resolution: "1920x1080", fov: 90, notes: "" },
-      { name: "Inositol Rex", clan: "Blackwater", flag: "us", avatar: "images/rex.jpg", mouse: "...", mousepad: "...", dpi: 800, sensitivity: 1.35, resolution: "1920x1080", fov: 90, notes: "" },
-      { name: "Minotaur King", clan: "Blackwater", flag: "se", avatar: "images/mino.png", mouse: "...", mousepad: "...", dpi: 800, sensitivity: 1.35, resolution: "1920x1080", fov: 90, notes: "" },
+      { name: "Inositol Rex", clan: "Blackwater", flag: "us", avatar: "images/inositol.jpg", mouse: "...", mousepad: "...", dpi: 800, sensitivity: 1.35, resolution: "1920x1080", fov: 90, notes: "" },
+      { name: "Minotaur King", clan: "Blackwater", flag: "se", avatar: "images/minotaur.png", mouse: "...", mousepad: "...", dpi: 800, sensitivity: 1.35, resolution: "1920x1080", fov: 90, notes: "" },
+      { name: "General Lee", clan: "Defiance", flag: "us", avatar: "images/lee.png", mouse: "Pulsar X2H CrazyLight", mousepad: "SteelSeries QcK Speed", dpi: 800, sensitivity: 1.30, resolution: "2560x1440", fov: 120, notes: "" },
       { name: "Ninogan Swiftstep", clan: "GET GOOD", flag: "se", avatar: "images/ninogan.png", mouse: "wlmouse Beast X Pro", mousepad: "Artisan FX Zero Soft XL", dpi: 400, sensitivity: 1.30, resolution: "2560x1440", fov: 120, notes: "" }
     ];
 
@@ -285,8 +286,9 @@
       applyTheme(currentTheme === 'light');
     });
 
-    // Initial render
+    // Initial render - force Light Mode
     window.onload = () => {
+      applyTheme(false);   // Forces light mode
       renderPlayers(players);
     };
   </script>
