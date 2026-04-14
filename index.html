@@ -107,6 +107,8 @@
   </div>
 
   <script>
+    tailwind.config = { darkMode: 'class' };
+
     const WORKER_URL = "https://rapid-cell-f430.malmrosc.workers.dev";
 
     const players = [
@@ -151,9 +153,7 @@
           <div class="player-card bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden cursor-pointer">
             <div class="pt-8 pb-4 flex justify-center portrait-container">
               <div class="portrait w-40 h-40 rounded-full overflow-hidden border-4 border-white dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
-                ${player.avatar 
-                  ? `<img src="${player.avatar}" alt="${player.name}" class="w-full h-full object-cover">` 
-                  : `<div class="text-6xl font-bold text-zinc-400 dark:text-zinc-500">${initials}</div>`}
+                ${player.avatar ? `<img src="${player.avatar}" alt="${player.name}" class="w-full h-full object-cover">` : `<div class="text-6xl font-bold text-zinc-400 dark:text-zinc-500">${initials}</div>`}
               </div>
             </div>
             <div class="px-6 text-center flex-1 flex flex-col">
@@ -299,7 +299,7 @@
       applyTheme(currentTheme === 'light');
     });
 
-    // Force Light Mode on start
+    // Force Light Mode and render
     window.onload = () => {
       applyTheme(false);
       renderPlayers(players);
