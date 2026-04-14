@@ -1,16 +1,21 @@
-## Hi there 👋
+# dfsettings
 
-<!--
-**dfsettings/dfsettings** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Darkfall: Rise of Agon Player Settings Hub**
 
-Here are some ideas to get you started:
+A clean community list of player settings — DPI, sensitivity, mouse, mousepad, resolution, FOV and more.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+### Live Site
+→ [https://dfsettings.github.io/dfsettings](https://dfsettings.github.io/dfsettings)
+
+### How to Submit Your Settings
+1. Open the website
+2. Click the green **"Submit Your Settings"** button
+3. Log in with Discord and fill out the form
+
+Your submission will be sent directly to the owner and added after review.
+
+---
+
+Made for the Darkfall community.
